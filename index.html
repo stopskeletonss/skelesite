@@ -1,9 +1,81 @@
-<!DOCTYPE HTML>
-<!--
-	Strata by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+﻿<html lang="en">
+<head>
+
+    <style>
+        /* Dark Mode Styles */
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+
+        /* Button Styling */
+        #darkModeToggle {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: white; /* Light mode background */
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: black; /* Dark text for visibility */
+            width: 40px;
+            height: 40px;
+            border-radius: 50%; /* Makes it a circle */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+            transition: background 0.3s, color 0.3s; /* Smooth transition */
+            z-index: 9999;
+        }
+
+        .dark-mode #darkModeToggle {
+            background: black; /* Dark mode background */
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dark Mode Button -->
+    <button id="darkModeToggle">🟒</button> <!-- Default to sun-like emoticon -->
+
+    <script>
+        const toggleButton = document.getElementById("darkModeToggle");
+
+        // Function to update button text based on mode
+        function updateButtonText() {
+            if (document.body.classList.contains("dark-mode")) {
+                toggleButton.textContent = "🌘︎"; // Moon-like emoticon
+            } else {
+                toggleButton.textContent = "☀"; // Sun-like emoticon
+            }
+        }
+
+        // Check local storage for dark mode preference
+        if (localStorage.getItem("darkMode") === "enabled") {
+            document.body.classList.add("dark-mode");
+        }
+        updateButtonText(); // Ensure the correct emoticon is set on load
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("darkMode", "enabled");
+            } else {
+                localStorage.setItem("darkMode", "disabled");
+            }
+
+            updateButtonText(); // Update the button after toggling mode
+        }
+
+        toggleButton.addEventListener("click", toggleDarkMode);
+    </script>
+
+</body>
+</html>
+
 <html>
 	<head>
 		<title>Kevin | stopskelss</title>
@@ -396,10 +468,10 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<footer id="footer">
 				<div class="inner">
 					<ul class="icons">
-						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-						<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="https://stopskelss.itch.io/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+						<li><a href="https://x.com/stopskelss" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="https://github.com/stopskeletonss" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="https://www.instagram.com/stopskelss/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="https://www.linkedin.com/in/kevin-pittman-gms/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
 
 					</ul>
 					<ul class="copyright">
